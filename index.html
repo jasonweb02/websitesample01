@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>Your Logo</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Plans</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="banner" class="banner-image">
+            <img src="banner-image.jpg" alt="Banner Image">
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <div class="section-container">
+        <div class="container">
+            <h2 class="section-title">Our Features</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h3>Feature 1</h3>
+                    <p>Description of feature 1.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Feature 2</h3>
+                    <p>Description of feature 2.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Feature 3</h3>
+                    <p>Description of feature 3.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="image1.jpg" alt="Image 1">
+                    <p class="quote">"This is a great image!"</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="image2.jpg" alt="Image 2">
+                    <p class="quote">"Another amazing shot!"</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="image3.jpg" alt="Image 3">
+                    <p class="quote">"Simply beautiful!"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Membership Plans Section -->
+    <div class="section-container">
+        <div class="container">
+            <h2 class="section-title">Membership Plans</h2>
+            <div class="plans">
+                <div class="plan">
+                    <h3>Basic Plan</h3>
+                    <p>Details about the basic plan.</p>
+                </div>
+                <div class="plan">
+                    <h3>Standard Plan</h3>
+                    <p>Details about the standard plan.</p>
+                </div>
+                <div class="plan">
+                    <h3>Premium Plan</h3>
+                    <p>Details about the premium plan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="section-container">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Your Company</p>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Get all gallery images and the modal elements
+        const galleryImages = document.querySelectorAll('.gallery-item img');
+        const modal = document.createElement('div');
+        const modalImage = document.createElement('img');
+        const closeButton = document.createElement('span');
+
+        // Setup the modal
+        modal.classList.add('modal');
+        closeButton.classList.add('close-button');
+        closeButton.innerHTML = '&times;'; // Close button with a cross
+
+        // Append the modal image and close button to the modal
+        modal.appendChild(modalImage);
+        modal.appendChild(closeButton);
+        document.body.appendChild(modal);
+
+        // Add event listener to each gallery image
+        galleryImages.forEach(image => {
+            image.addEventListener('click', function() {
+                // When an image is clicked, display it in the modal
+                modal.style.display = 'block';
+                modalImage.src = image.src;
+            });
+        });
+
+        // Close the modal when the close button is clicked
+        closeButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Close the modal if the user clicks outside of the image
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
